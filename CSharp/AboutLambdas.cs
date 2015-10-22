@@ -22,7 +22,7 @@ namespace DotNetKoans.CSharp
 														return x.ToString();
 													});
 
-			Assert.Equal(new[] { "1", "2", "3", "4" }, result);
+			Assert.Equal(new string[] { "1", "2", "3", "4" }, result);
 		}
 		[Koan(2)]
 		public void AnonymousMethodsCanAccessOuterVariables()
@@ -71,7 +71,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString(); 
 													});
-			Assert.Equal(new[] { "1", "2", "3", "4" }, anonymous);
+			Assert.Equal(lambda, anonymous);
 			//The => pair is spoken as "going into". If you were talking about this 
 			//code with a peer, you would say "x going into..."
 		}
@@ -91,7 +91,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString();
 													});
-			Assert.Equal(new[] { "1", "2", "3", "4" }, anonymous);
+			Assert.Equal(lambda, anonymous);
 		}
 		[Koan(6)]
 		public void ParensNotNeededOnSingleParemeterLambdas()
@@ -107,7 +107,7 @@ namespace DotNetKoans.CSharp
 													{
 														return x.ToString();
 													});
-			Assert.Equal(new[] { "1", "2", "3", "4" }, anonymous);
+			Assert.Equal(lambda, anonymous);
 		}
 		[Koan(7)]
 		public void BlockNotNeededOnSingleStatementLambdas()
@@ -119,7 +119,7 @@ namespace DotNetKoans.CSharp
 			});
 			var lambda = System.Array.ConvertAll(numbers, x => x.ToString());
 			//When you have only one statement, the curly brackets are not needed. What other two things are also missing?
-			Assert.Equal(new[] { "1", "2", "3", "4" }, anonymous);
+			Assert.Equal(lambda, anonymous);
 		}
 	}
 }

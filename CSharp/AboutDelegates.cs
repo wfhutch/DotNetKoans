@@ -173,7 +173,7 @@ namespace DotNetKoans.CSharp
 		{
 			//Action is an overloaded delegate so it can take more than one paramter
 			Action<int, string> a = AssertAddEqualsFourtyTwo;
-			//a(12, (string)"42");
+			//a(12, "30");
 		}
 		public class Seen
 		{
@@ -204,31 +204,31 @@ namespace DotNetKoans.CSharp
 			return 42 == x;
 		}
 		private bool StringEqualsFourtyTwo(string s)
-		{
+ 		{
 			return "42" == s;
 		}
 		[Koan(16)]
 		public void BuiltInPredicateDelegateIntSatisfied()
 		{
-			//The Predicate<T> delegate 
-			//  public delgate bool Predicate<T>(T obj);
-			//Predicate allows you to codify a condition and pass it around. 
-			//You use it to determine if an object satisfies some criteria. 
+            //The Predicate<T> delegate 
+            //  public delgate bool Predicate<T>(T obj);
+            //Predicate allows you to codify a condition and pass it around. 
+            //You use it to determine if an object satisfies some criteria. 
 
-			//Predicate<int> i = (Predicate<int>)FILL_ME_IN;
-			//Assert.True(i(42));
-		}
+            Predicate<int> i = IntEqualsFourtyTwo;
+            Assert.True(i(42));
+        }
 		[Koan(17)]
 		public void BuiltInPredicateDelegateStringSatisfied()
 		{
-			//Because it is a template, you can work with any type
-			//Predicate<string> s = (Predicate<string>)FILL_ME_IN;
-			//Assert.True(s("42"));
+            //Because it is a template, you can work with any type
+            Predicate<string> s = StringEqualsFourtyTwo;
+            Assert.True(s("42"));
 
-			//Predicate is not overloaded, so unlike Action<> you cannot do this...
-			//Predicate<int, string> a = (Predicate<int, string>)FILL_ME_IN;
-			//Assert.True(a(42, "42"));
-		}
+            //Predicate is not overloaded, so unlike Action<> you cannot do this...
+            //Predicate<int, string> a = (Predicate<int, string>)FILL_ME_IN;
+            //Assert.True(a(42, "42"));
+        }
 
 		private bool StartsWithS(string country)
 		{
@@ -332,7 +332,7 @@ namespace DotNetKoans.CSharp
 
 			var result = System.Array.ConvertAll(numbers, c);
 
-			Assert.Equal(new[] { "1", "2", "3", "4" }, result);
+			Assert.Equal(new string[] { "1", "2", "3", "4" }, result);
 		}
-	}
+	} 
 }
