@@ -8,7 +8,7 @@ namespace DotNetKoans
     }
 
     //This is just used when we need a type
-    public abstract class FillMeIn
+    public abstract class Array
     {
 
     }
